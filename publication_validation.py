@@ -10,8 +10,8 @@ Generates Nature/Science-level validation figures with:
 - Complete error analysis
 - CSV data export for each panel
 
-Author: CellRad-MC Team
-Date: December 2024
+Author:Arvin
+Date: December 2025
 """
 
 import numpy as np
@@ -1210,4 +1210,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
