@@ -1,0 +1,26 @@
+# CellRad-MC Requirements
+# GPU-Accelerated Monte Carlo for Cellular Dosimetry
+
+# Core Dependencies
+numpy>=1.20.0
+scipy>=1.7.0
+
+# GPU Computing
+cupy-cuda11x>=10.0.0       # For CUDA 11.x
+# cupy-cuda12x>=10.0.0     # Uncomment for CUDA 12.x
+numba>=0.55.0
+
+# Medical Imaging
+nibabel>=3.2.0             # NIfTI file I/O
+tifffile>=2021.0.0         # TIF file I/O (optional)
+
+# Data Analysis
+pandas>=1.3.0
+
+# Visualization
+matplotlib>=3.4.0
+
+# Optional: For advanced visualization
+# seaborn>=0.11.0
+# plotly>=5.0.0
+
