@@ -1,0 +1,10 @@
+Parameter,Value,Source
+DSB per Gy per Gbp (gamma-rays),35,Rothkamm & Lobrich 2003
+SSB per Gy per Gbp (gamma-rays),1000,Nikjoo et al. 2001
+SSB:DSB ratio (low LET),25:1,Literature consensus
+SSB:DSB ratio (high LET),5:1,Friedland et al. 2003
+DSB per Gy per cell (human),35-40,Multiple sources
+Complex DSB fraction (gamma),20%,Nikjoo et al. 2001
+Complex DSB fraction (alpha),70%,Nikjoo et al. 2001
+Direct damage threshold,17.5 eV,Geant4-DNA
+W-value (water),22 eV,ICRU

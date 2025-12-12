@@ -1,0 +1,5 @@
+Cell Type,alpha (Gy-1),beta (Gy-2),D37 (Gy),alpha/beta (Gy)
+Tumor (gamma-rays),0.30,0.030,2.6,10.0
+Tumor (alpha-particles),0.80,0.015,1.2,53.3
+Normal tissue (gamma-rays),0.15,0.050,3.4,3.0
+Hypoxic tumor,0.10,0.025,5.0,4.0

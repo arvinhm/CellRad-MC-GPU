@@ -1,0 +1,99 @@
+{
+  "dsb_yields": [
+    {
+      "name": "Gamma rays",
+      "LET": 0.2,
+      "literature": 35,
+      "cellrad": 35.0,
+      "error_pct": 0.0
+    },
+    {
+      "name": "Lu-177 beta",
+      "LET": 0.3,
+      "literature": 35,
+      "cellrad": 35.0,
+      "error_pct": 0.0
+    },
+    {
+      "name": "Auger electrons",
+      "LET": 10,
+      "literature": 57,
+      "cellrad": 57.5,
+      "error_pct": 0.8771929824561403
+    },
+    {
+      "name": "Alpha 5 MeV",
+      "LET": 100,
+      "literature": 120,
+      "cellrad": 120.0,
+      "error_pct": 0.0
+    },
+    {
+      "name": "Alpha 8 MeV",
+      "LET": 75,
+      "literature": 107,
+      "cellrad": 107.5,
+      "error_pct": 0.46728971962616817
+    }
+  ],
+  "ssb_dsb_ratio": [
+    {
+      "name": "Low LET (gamma)",
+      "LET": 0.2,
+      "literature": 25,
+      "cellrad": 25.0,
+      "error_pct": 0.0
+    },
+    {
+      "name": "Intermediate LET",
+      "LET": 10,
+      "literature": 17,
+      "cellrad": 17.0,
+      "error_pct": 0.0
+    },
+    {
+      "name": "High LET (alpha)",
+      "LET": 100,
+      "literature": 5,
+      "cellrad": 5.0,
+      "error_pct": 0.0
+    }
+  ],
+  "cell_survival": [
+    {
+      "cell_type": "tumor_gamma",
+      "alpha": 0.3,
+      "beta": 0.03,
+      "D37": 2.6376261582597333,
+      "survival_at_D37": 0.36787944117144233
+    },
+    {
+      "cell_type": "tumor_alpha",
+      "alpha": 0.8,
+      "beta": 0.015,
+      "D37": 1.2220008844691876,
+      "survival_at_D37": 0.3678794411714415
+    },
+    {
+      "cell_type": "normal_gamma",
+      "alpha": 0.15,
+      "beta": 0.05,
+      "D37": 3.2169905660283016,
+      "survival_at_D37": 0.3678794411714424
+    },
+    {
+      "cell_type": "normal_alpha",
+      "alpha": 0.5,
+      "beta": 0.025,
+      "D37": 1.8321595661992318,
+      "survival_at_D37": 0.3678794411714424
+    },
+    {
+      "cell_type": "hypoxic",
+      "alpha": 0.1,
+      "beta": 0.025,
+      "D37": 4.6332495807108005,
+      "survival_at_D37": 0.36787944117144217
+    }
+  ]
+}

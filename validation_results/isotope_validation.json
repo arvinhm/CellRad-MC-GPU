@@ -1,0 +1,89 @@
+{
+  "beta_emitters": [
+    {
+      "isotope": "Lu-177",
+      "half_life_error": -0.040619828494056334,
+      "weighted_E_error": 0.0,
+      "spectrum_error": -1.8477370237984267,
+      "all_pass": true
+    },
+    {
+      "isotope": "Y-90",
+      "half_life_error": 0.0,
+      "weighted_E_error": 0.12240143715144512,
+      "spectrum_error": 1.0070977277899704,
+      "all_pass": true
+    },
+    {
+      "isotope": "I-131",
+      "half_life_error": 0.0,
+      "weighted_E_error": 0.0,
+      "spectrum_error": -7.37179176792471,
+      "all_pass": true
+    },
+    {
+      "isotope": "P-32",
+      "half_life_error": 0.04206983592764148,
+      "weighted_E_error": 0.014390559792779211,
+      "spectrum_error": -1.329714548673561,
+      "all_pass": true
+    },
+    {
+      "isotope": "Sr-89",
+      "half_life_error": -0.013842198932169066,
+      "weighted_E_error": -0.07427983539095613,
+      "spectrum_error": -4.544062148236493,
+      "all_pass": true
+    }
+  ],
+  "alpha_emitters": [
+    {
+      "isotope": "Ac-225",
+      "half_life_error": -0.8000000000000007,
+      "total_E_error": 0.03344887248753721,
+      "all_pass": true
+    },
+    {
+      "isotope": "Ra-223",
+      "half_life_error": 0.0,
+      "total_E_error": 0.0,
+      "all_pass": true
+    },
+    {
+      "isotope": "At-211",
+      "half_life_error": 0.03320053120849568,
+      "total_E_error": 0.0,
+      "all_pass": true
+    }
+  ],
+  "auger_emitters": [
+    {
+      "isotope": "I-125",
+      "half_life_error": -0.013466199838410098,
+      "auger_yield_error": 0.3775100401606474,
+      "auger_E_error": -1.7908496732026202
+    },
+    {
+      "isotope": "In-111",
+      "half_life_error": 0.0,
+      "auger_yield_error": -7.020408163265307,
+      "auger_E_error": -1.3200000000000025
+    },
+    {
+      "isotope": "Ga-67",
+      "half_life_error": 0.015331779712980586,
+      "auger_yield_error": 0.22222222222223065,
+      "auger_E_error": -3.7099041533546186
+    },
+    {
+      "isotope": "Tc-99m",
+      "half_life_error": 0.07980845969674122,
+      "auger_yield_error": 7.36363636363636,
+      "auger_E_error": 2.3333333333333357
+    }
+  ],
+  "summary": {
+    "beta_all_pass": true,
+    "alpha_all_pass": true
+  }
+}
