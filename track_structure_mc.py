@@ -8,7 +8,7 @@ DNA geometry overlay, and damage classification (SSB/DSB).
 
 Based on Geant4-DNA and TOPAS-nBio physics models.
 
-Author: CellRad-MC Team
+Author: Arvin
 """
 
 import numpy as np
