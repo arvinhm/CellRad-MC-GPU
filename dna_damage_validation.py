@@ -11,7 +11,7 @@ Comprehensive validation suite for:
 
 Generates Nature-level publication figures.
 
-Author: CellRad-MC Team
+Author: Arvin
 """
 
 import numpy as np
