@@ -18,8 +18,8 @@ Tests:
 
 Target: ALL within 5% of ICRP 107 reference values
 
-Author: CellRad-MC Team
-Date: December 2024
+Author: Arvin
+Date: December 2025
 """
 
 import numpy as np
@@ -761,4 +761,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
