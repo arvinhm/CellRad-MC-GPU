@@ -27,6 +27,41 @@
 
 ---
 
+## 📂 Repository Structure
+
+```
+CellRad-MC/
+├── cellrad_mc.py                 # Main Monte Carlo simulation CLI
+├── gpu_monte_carlo.py            # GPU transport engine (CUDA kernels)
+├── run_comprehensive_analysis.py # Full cellular analysis pipeline
+├── enhanced_physics.py           # Physics data and validation
+├── dna_geometry.py               # DNA damage calculations
+├── convert_tif.py                # TIF to NIfTI converter
+├── publication_validation.py     # Physics validation suite
+├── isotope_validation.py         # Isotope database validation
+├── dna_damage_validation.py      # DNA damage validation
+├── track_structure_mc.py         # Track-structure module
+├── track_structure_validation.py # Track validation
+├── cellrad_track_structure.py    # Track-structure CLI
+├── validate.sh / validate.bat    # Validation scripts
+├── requirements.txt              # Python dependencies
+├── README.md                     # This file
+├── docs/
+│   ├── CELLRAD_MC_COMPLETE_GUIDE.md    # Detailed user guide
+│   └── NATURE_METHODS_AND_MATERIALS.md # Publication methods
+├── examples/
+│   ├── nuclei_EGFR.nii.gz        # Example nuclei mask
+│   ├── protein_EGFR.nii.gz       # Example protein expression
+│   ├── CT_19.nii.gz              # Example CT scan
+│   ├── cell_analysis_EGFR_v5_Lu177/  # Lu-177 analysis example
+│   └── cell_analysis_EGFR_v5_Ac225/  # Ac-225 analysis example
+└── validation_results/
+    ├── Figure1-6_*.png           # Validation figures
+    └── *.csv / *.json            # Validation data
+```
+
+---
+
 ## 📦 Installation
 
 ### Prerequisites
@@ -152,10 +187,11 @@ python cellrad_mc.py \
 **Goal**: Full analysis with DNA damage and cell survival.
 
 ```bash
+# Using example data from examples/ directory
 python run_comprehensive_analysis.py \
-    --nuclei nuclei_mask.nii.gz \
-    --protein protein_expression.nii.gz \
-    --output full_analysis/ \
+    --nuclei examples/nuclei_EGFR.nii.gz \
+    --protein examples/protein_EGFR.nii.gz \
+    --output my_analysis/ \
     --isotope Ac-225 \
     --n-particles 10000000 \
     --voxel-size 1.0 \
@@ -568,9 +604,10 @@ json.decoder.JSONDecodeError
 | Document | Description |
 |----------|-------------|
 | [README.md](README.md) | This file - quick start and overview |
-| [CELLRAD_MC_COMPLETE_GUIDE.md](CELLRAD_MC_COMPLETE_GUIDE.md) | Detailed user guide |
-| [NATURE_METHODS_AND_MATERIALS.md](NATURE_METHODS_AND_MATERIALS.md) | Publication-ready methods |
+| [docs/CELLRAD_MC_COMPLETE_GUIDE.md](docs/CELLRAD_MC_COMPLETE_GUIDE.md) | Detailed user guide |
+| [docs/NATURE_METHODS_AND_MATERIALS.md](docs/NATURE_METHODS_AND_MATERIALS.md) | Publication-ready methods & materials |
 | [validation_results/](validation_results/) | Validation figures and data |
+| [examples/](examples/) | Example data and analysis outputs |
 
 ---
 
