@@ -13,7 +13,7 @@ Usage:
     python run_comprehensive_analysis.py --nuclei nuclei.nii.gz --protein protein.nii.gz \
         --output results/ --isotope Lu-177 --n-particles 10000000 --voxel-size 1.0
 
-Author: CellRad-MC Team
+Author: Arvin
 """
 
 import numpy as np
