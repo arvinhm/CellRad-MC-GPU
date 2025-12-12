@@ -23,7 +23,7 @@ Outputs:
     - LET_keV_um_{isotope}.nii.gz   : Linear Energy Transfer (keV/um)
     - summary_{isotope}.png          : MIP visualization
 
-Author: CellRad-MC Team
+Author: Arvin
 """
 
 import argparse
