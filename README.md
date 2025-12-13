@@ -641,7 +641,7 @@ If you use CellRad-MC in your research, please cite:
   title = {CellRad-MC: GPU-Accelerated Monte Carlo for Cellular Dosimetry},
   author = {Arvin Haj-Mirzaian},
   year = {2025},
-  url = {https://github.com/cellrad-mc/cellrad-mc}
+  url = {https://github.com/arvinhm/CellRad-MC}
 }
 ```
 
