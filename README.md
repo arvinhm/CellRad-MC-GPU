@@ -752,7 +752,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Contact
 
 - **Issues**: [GitHub Issues](https://github.com/cellrad-mc/cellrad-mc/issues)
-- **Email**: cellrad-mc@example.com
+- **Email**: arvin.mirzaian@gmail.com
 - **Documentation**: [Read the Docs](https://cellrad-mc.readthedocs.io)
 
 ---
@@ -820,4 +820,5 @@ python publication_validation.py && python isotope_validation.py
 <p align="center">
   Made with ❤️ for the nuclear medicine community
 </p>
+
 
