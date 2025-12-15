@@ -714,9 +714,9 @@ If you use CellRad-MC in your research, please cite:
 ```bibtex
 @software{cellrad_mc,
   title = {CellRad-MC: GPU-Accelerated Monte Carlo for Cellular Dosimetry},
-  author = {CellRad-MC Development Team},
-  year = {2024},
-  url = {https://github.com/cellrad-mc/cellrad-mc}
+  author = {Arvin Haj-Mirzaian},
+  year = {2025},
+  url = {https://github.com/arvinhm/cellrad-mc}
 }
 ```
 
@@ -820,3 +820,4 @@ python publication_validation.py && python isotope_validation.py
 <p align="center">
   Made with ❤️ for the nuclear medicine community
 </p>
+
