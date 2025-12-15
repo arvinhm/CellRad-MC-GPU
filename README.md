@@ -31,33 +31,48 @@
 
 ```
 CellRad-MC/
-├── cellrad_mc.py                 # Main Monte Carlo simulation CLI
-├── gpu_monte_carlo.py            # GPU transport engine (CUDA kernels)
-├── run_comprehensive_analysis.py # Full cellular analysis pipeline
-├── enhanced_physics.py           # Physics data and validation
-├── dna_geometry.py               # DNA damage calculations
-├── convert_tif.py                # TIF to NIfTI converter
-├── publication_validation.py     # Physics validation suite
-├── isotope_validation.py         # Isotope database validation
-├── dna_damage_validation.py      # DNA damage validation
-├── track_structure_mc.py         # Track-structure module
-├── track_structure_validation.py # Track validation
-├── cellrad_track_structure.py    # Track-structure CLI
-├── validate.sh / validate.bat    # Validation scripts
-├── requirements.txt              # Python dependencies
-├── README.md                     # This file
-├── docs/
-│   ├── CELLRAD_MC_COMPLETE_GUIDE.md    # Detailed user guide
-│   └── NATURE_METHODS_AND_MATERIALS.md # Publication methods
-├── examples/
-│   ├── nuclei_EGFR.nii.gz        # Example nuclei mask
-│   ├── protein_EGFR.nii.gz       # Example protein expression
-│   ├── CT_19.nii.gz              # Example CT scan
-│   ├── cell_analysis_EGFR_v5_Lu177/  # Lu-177 analysis example
-│   └── cell_analysis_EGFR_v5_Ac225/  # Ac-225 analysis example
-└── validation_results/
-    ├── Figure1-6_*.png           # Validation figures
-    └── *.csv / *.json            # Validation data
+├── 🔬 Core Simulation
+│   ├── cellrad_mc.py                 # Main Monte Carlo simulation CLI
+│   ├── gpu_monte_carlo.py            # GPU transport engine (CUDA kernels)
+│   ├── enhanced_physics.py           # Physics data and validation
+│   └── dna_geometry.py               # DNA damage calculations
+│
+├── 📊 Analysis Pipelines
+│   ├── run_comprehensive_analysis.py # Cellular analysis pipeline
+│   ├── patient_dosimetry.py          # Patient-level dosimetry from PET/CT
+│   ├── track_structure_mc.py         # Track-structure module
+│   └── cellrad_track_structure.py    # Track-structure CLI
+│
+├── ✅ Validation
+│   ├── publication_validation.py     # Physics validation suite
+│   ├── isotope_validation.py         # ICRP 107 validation
+│   ├── dna_damage_validation.py      # DNA damage validation
+│   ├── track_structure_validation.py # Track validation
+│   ├── patient_dosimetry_validation.py  # Patient dosimetry validation
+│   └── validate.sh / validate.bat    # Validation scripts
+│
+├── 🔧 Utilities
+│   ├── convert_tif.py                # TIF to NIfTI converter
+│   └── requirements.txt              # Python dependencies
+│
+├── 📚 Documentation
+│   ├── README.md                     # This file
+│   └── docs/
+│       ├── CELLRAD_MC_COMPLETE_GUIDE.md
+│       └── NATURE_METHODS_AND_MATERIALS.md
+│
+├── 📁 Examples
+│   ├── examples/                     # Cellular-level examples
+│   │   ├── nuclei_EGFR.nii.gz
+│   │   ├── protein_EGFR.nii.gz
+│   │   └── cell_analysis_*/
+│   └── patient/                      # Patient-level examples
+│       └── fdg_*/                    # PET/CT with segmentations
+│
+└── 📈 Validation Results
+    └── validation_results/
+        ├── Figure1-6_*.png
+        └── *.csv / *.json
 ```
 
 ---
@@ -197,6 +212,47 @@ python run_comprehensive_analysis.py \
     --voxel-size 1.0 \
     --auto-ct
 ```
+
+### Tutorial 4: Patient-Level Dosimetry from PET/CT
+
+**Goal**: Clinical dosimetry with organ-level biodistribution and dose calculations.
+
+```bash
+# Using patient folder with auto-detection
+python patient_dosimetry.py \
+    --patient-folder patient/fdg_xxx/ \
+    --isotope Lu-177 \
+    --activity 7400 \
+    --output patient_results/
+
+# Or with explicit file paths (nnU-Net convention: 0000=CT, 0001=PET)
+python patient_dosimetry.py \
+    --pet patient/scan_0001.nii.gz \
+    --ct patient/scan_0000.nii.gz \
+    --segmentation patient/segmentations/ \
+    --isotope Ac-225 \
+    --activity 100 \
+    --output patient_results/
+```
+
+**Outputs**:
+- `organ_doses.csv` - Mean/max dose per organ
+- `biodistribution.csv` - SUV and %ID per organ
+- `dose_Gy_*.nii.gz` - 3D dose map
+- `Figure1-4_*.png` - Publication figures
+- `DOSIMETRY_REPORT.md` - Comprehensive report
+
+**Patient Dosimetry Approach**:
+
+| Scale | Method | Why |
+|-------|--------|-----|
+| **Macro (PET voxel ~4mm)** | Dose Point Kernel convolution | Beta range (~2mm) comparable to voxel size |
+| **Organ level** | MIRD-style S-values | Standard clinical dosimetry |
+| **Cellular** | RBE-corrected DNA damage yields | Literature parameters applied to organ doses |
+
+> **Note**: Unlike cellular MC at μm scale, patient dosimetry uses Dose Point Kernel (DPK) 
+> convolution because beta particle range (~2mm) is similar to PET voxel size (~4mm).
+> This is the MIRD-standard approach for clinical TRT dosimetry.
 
 **Outputs include:**
 - 8 publication-quality figures
@@ -560,6 +616,25 @@ Running Simulation (1,000,000 decays)
 | Auger total energies | ✅ PASS | < 5% |
 | Half-lives | ✅ PASS | 0% |
 
+### Patient Dosimetry Validation
+
+| Test | Status | Reference |
+|------|--------|-----------|
+| Lu-177 half-life | ✅ PASS | ICRP 107 |
+| Ac-225 half-life | ✅ PASS | ICRP 107 |
+| Y-90 half-life | ✅ PASS | ICRP 107 |
+| DSB/Gy (low-LET) | ✅ PASS | Nikjoo 2001 |
+| DSB/Gy (high-LET) | ✅ PASS | Goodhead 1994 |
+| LQ α parameter | ✅ PASS | van Leeuwen 2018 |
+| LQ β parameter | ✅ PASS | van Leeuwen 2018 |
+| Effective half-life | ✅ PASS | Violet 2019 |
+
+Run patient dosimetry validation:
+
+```bash
+python patient_dosimetry_validation.py --output validation_results/
+```
+
 ---
 
 ## 🔧 Troubleshooting
@@ -639,12 +714,23 @@ If you use CellRad-MC in your research, please cite:
 ```bibtex
 @software{cellrad_mc,
   title = {CellRad-MC: GPU-Accelerated Monte Carlo for Cellular Dosimetry},
-  author = {Arvin Haj-Mirzaian},
-  year = {2025},
-  url = {https://github.com/arvinhm/CellRad-MC}
+  author = {CellRad-MC Development Team},
+  year = {2024},
+  url = {https://github.com/cellrad-mc/cellrad-mc}
 }
 ```
 
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
@@ -666,7 +752,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Contact
 
 - **Issues**: [GitHub Issues](https://github.com/cellrad-mc/cellrad-mc/issues)
-- **Email**: arvin.mirzaian@gmail.com
+- **Email**: cellrad-mc@example.com
+- **Documentation**: [Read the Docs](https://cellrad-mc.readthedocs.io)
 
 ---
 
